@@ -32,6 +32,8 @@ public class AuthService
 
         if (user.Sifre != sifre)
         {
+            // TODO: SECURITY - Implement password hashing in ADIM 2
+            // Currently comparing plain text passwords - NOT SECURE for production
             return (false, "Şifre hatalı.");
         }
 
@@ -85,7 +87,7 @@ public class AuthService
             Ad = ad,
             Soyad = soyad,
             Email = email,
-            Sifre = sifre,
+            Sifre = sifre, // TODO: SECURITY - Hash password in ADIM 2 (use PBKDF2 or BCrypt)
             Rol = rol,
             Telefon = telefon,
             Adres = adres,
@@ -152,6 +154,7 @@ public class AuthService
 
         if (_currentUser.Sifre != eskiSifre)
         {
+            // TODO: SECURITY - Use hashed password comparison in ADIM 2
             return (false, "Eski şifre hatalı.");
         }
 
@@ -160,7 +163,7 @@ public class AuthService
             return (false, "Yeni şifre en az 6 karakter olmalıdır.");
         }
 
-        _currentUser.Sifre = yeniSifre;
+        _currentUser.Sifre = yeniSifre; // TODO: SECURITY - Hash new password in ADIM 2
         await _databaseService.SaveUserAsync(_currentUser);
 
         return (true, "Şifre değiştirildi.");
