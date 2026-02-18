@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ToptanciHub.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ToptanciHub.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Toptancı Hub">
+
+    <TabBar>
+        <ShellContent
+            Title="Ana Sayfa"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="home.png"
+            Route="MainPage" />
+
+        <ShellContent
+            Title="Kampanyalar"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="star.png"
+            Route="Campaigns" />
+
+        <ShellContent
+            Title="Ürünler"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="shop.png"
+            Route="Products" />
+
+        <ShellContent
+            Title="Siparişler"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="cart.png"
+            Route="Orders" />
+
+        <ShellContent
+            Title="Profil"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="user.png"
+            Route="Profile" />
+    </TabBar>
+
+</Shell>
